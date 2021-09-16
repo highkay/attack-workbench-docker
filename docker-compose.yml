@@ -1,0 +1,33 @@
+version: "3"
+services:
+  attack-workbench-frontend:
+    image: highkay/attack-workbench-frontend:${version}
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - attack-workbench-rest-api
+      - attack-workbench-collection-manager
+    ports:
+      - "20080:80"
+
+  attack-workbench-rest-api:
+    image: highkay/attack-workbench-rest-api:${version}
+    depends_on:
+      - mongodb
+    environment:
+      - DATABASE_URL=mongodb://mongodb/attack-workspace
+
+  attack-workbench-collection-manager:
+    image: highkay/attack-workbench-collection-manager:${version}
+    depends_on:
+      - attack-workbench-rest-api
+    environment:
+      - WORKBENCH_HOST=http://attack-workbench-rest-api
+
+  mongodb:
+    image: mongo:4
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
