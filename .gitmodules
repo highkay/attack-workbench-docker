@@ -1,0 +1,9 @@
+[submodule "attack-workbench-rest-api"]
+	path = attack-workbench-rest-api
+	url = https://github.com/center-for-threat-informed-defense/attack-workbench-rest-api
+[submodule "attack-workbench-frontend"]
+	path = attack-workbench-frontend
+	url = https://github.com/center-for-threat-informed-defense/attack-workbench-frontend
+[submodule "attack-workbench-collection-manager"]
+	path = attack-workbench-collection-manager
+	url = https://github.com/center-for-threat-informed-defense/attack-workbench-collection-manager
