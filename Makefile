@@ -1,5 +1,5 @@
 registry=highkay
-v=1.0.2
+v=1.1.0
 
 init:
 	git submodule init
